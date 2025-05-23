@@ -1,4 +1,4 @@
-## novecca-dots
+## novecca-dots [WIP]
 ![Logo](screenshot.png)
 
 # What do I use
