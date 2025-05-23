@@ -1,7 +1,7 @@
-## novecca-dots [WIP]
+# novecca-dots [WIP]
 ![Logo](screenshot.png)
 
-# What do I use
+## What do I use
 - Hyprland
 - Waybar for the bar
 - Dunst for notifications
