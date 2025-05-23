@@ -1,0 +1,125 @@
+//============================================
+//           Rein's Waybar Configuration
+//============================================
+
+//-----------------------------
+//         Global Settings
+//-----------------------------
+{
+  "layer": "bottom",
+  "position": "bottom",
+  "height": 50,
+  "width": 2560,
+  "spacing": 0,
+  "reload_style_on_change": true,
+
+  //-----------------------------
+  //         Module Layout
+  //-----------------------------
+  "modules-left": [
+    "user",
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "hyprland/window"
+  ],
+
+  "modules-right": [
+    "mpris",
+    "tray",
+    "network",
+    "wireplumber",
+    "clock"
+  ],
+
+  //-----------------------------
+  //         Clock Module
+  //-----------------------------
+  "clock": {
+    "format": "󰥔  <span text_transform='lowercase'>{:%a %b %d %R}</span>",
+    "tooltip": false
+  },
+
+  //-----------------------------
+  //       Volume Control
+  //-----------------------------
+  "wireplumber": {
+    "format": "  {volume}",
+    "format-muted": " 0",
+    "tooltip": false,
+    "min-length": 8,
+    "on-click": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && { wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && dunstify -t 2000 -h string:x-dunst-stack-tag:vol 'Unmuted Audio'; } || { wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && dunstify -t 2000 -h string:x-dunst-stack-tag:vol 'Muted Audio'; }"
+  },
+
+  //-----------------------------
+  //         User Module
+  //-----------------------------
+  "user": {
+    "format": " 󰝙  rein is up for {work_H}:{work_M}",
+    "interval": 60,
+    "height": 32,
+    "width": 32,
+    "icon": true,
+    "open-on-click": true
+  },
+
+  //-----------------------------
+  //      Workspace Module
+  //-----------------------------
+  "hyprland/workspaces": {
+    "active-only": true,
+	"format":"{icon}",
+	"format-icons": {
+		"1": "󰣇",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "󰎆",
+		"6": "",
+		"7": "",
+		"8": "",
+		"default": ""
+	},
+    "persistent-workspaces": {
+      "*": 8
+    }
+  },
+
+  //-----------------------------
+  //        Media Control
+  //-----------------------------
+  "mpris": {
+    "format": "  <span text_transform='lowercase'>{title}</span>",
+    "format-paused": "  <span text_transform='lowercase'>{title}</span>",
+    "tooltip": false,
+    "max-length": 64
+  },
+
+  //-----------------------------
+  //       Network Module
+  //-----------------------------
+  "network": {
+    "tooltip": false,
+    "format": "󰲝 eth",
+    "format-disconnected": "󰲛 eth",
+    "on-click": "~/.config/waybar/scripts/waybar-network.sh",
+    "on-click-right": "~/.config/waybar/waybar-network-check.sh"
+  },
+  
+  //-----------------------------
+  //       System Tray
+  //-----------------------------
+  "tray": {
+    "show-passive-items": true,
+    "icon-size": 18,
+    "spacing": 6
+  },
+
+  //-----------------------------
+  //      Window Title Module
+  //-----------------------------
+  "hyprland/window": {
+    "format": "<span text_transform='lowercase'>{class}</span>",
+  },
+}

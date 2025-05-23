@@ -1,0 +1,184 @@
+/* =======================
+   General Styles
+========================== */
+* {
+    font-family: Iosevka;
+    font-size: 16px;
+    min-height: 0;
+}
+
+/* =======================
+   Color Variables
+========================== */
+@define-color background  #1a191e;
+@define-color primary     #ff4593;
+@define-color secondary   #8da600;
+@define-color text        #ffffff;
+@define-color blue        #00a3ee;
+@define-color yellow      #dec000;
+@define-color purple      #ad75ff;
+
+/* =======================
+   Bar
+========================== */
+window#waybar {
+    background: @background;
+    opacity: 1;
+    border: none;
+}
+
+/* =======================
+   Tooltip
+========================== */
+tooltip {
+    background: @background;
+    border: 2px solid @primary;
+}
+tooltip label {
+    color: @text;
+}
+
+/* =======================
+   General Widget Style
+========================== */
+#user, #wireplumber, #clock, #network, #tray, #mpris {
+    color: @text;
+    margin: 5px;
+    padding: 4px 8px;
+    border: 1px solid @background;
+    border-radius: 0;
+    transition: border-color 0.5s, border-radius 0.5s, color 0.5s, border 0.5s;
+}
+
+#user       { border-bottom: 2px solid @secondary; }
+#wireplumber{ border-bottom: 2px solid @blue; }
+#network    { border-bottom: 2px solid @blue; }
+#tray       { border-bottom: 2px solid @purple; }
+#clock      { border-bottom: 2px solid @secondary; }
+#mpris      { border-bottom: 2px solid @purple; }
+
+#user image {
+    padding-right: 10px;
+    padding-left: 0;
+}
+
+/* =======================
+   Hover Effects
+========================== */
+#clock:hover {
+    border-color: @secondary;
+    background: @background;
+    color: @text;
+    border-radius: 10px;
+    box-shadow: none;
+    text-shadow: none;
+    transition: border-color 0.5s, border-radius 0.5s;
+}
+
+#user:hover,
+#wireplumber:hover,
+#network:hover,
+#mpris:hover,
+#tray:hover {
+    border-color: @primary;
+    background: @background;
+    color: @text;
+    border-radius: 10px;
+    box-shadow: none;
+    text-shadow: none;
+    transition: border-color 0.5s, border-radius 0.5s;
+}
+
+/* =======================
+   Tray Menu
+========================== */
+#tray menu {
+    color: @text;
+    background-color: @background;
+    border: 2px solid @yellow;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 8px;
+}
+
+#tray menu menuitem {
+    color: @text;
+    padding: 8px;
+    transition: color 0.5s;
+}
+
+#tray menu *:hover {
+    color: @primary;
+    background-color: @background;
+    margin: 0;
+    transition: color 0.5s;
+}
+
+/* =======================
+   Workspaces
+========================== */
+#workspaces {
+    margin: 5px 0;
+}
+
+#workspaces button {
+    color: @text;
+    padding: 0 12px;
+    padding-right: 16px;
+    margin: 0 5px;
+    border: 1px solid @background;
+    border-bottom: 2px solid @blue;
+    border-radius: 0;
+    transition: border-color 0.5s, border-radius 0.5s;
+}
+
+#workspaces button:hover {
+    border-color: @primary;
+    background: @background;
+    color: @text;
+    border-radius: 10px;
+}
+
+#workspaces button.active {
+    color: @primary;
+    border-bottom: 2px solid @primary;
+    transition: color 0.5s, border-color 0.5s, border-radius 0.5s;
+}
+
+#workspaces button.active:hover {
+    background: @background;
+    border-color: @primary;
+    color: @primary;
+    border-radius: 10px;
+}
+
+#workspaces button.urgent {
+	background-color: transparent;
+    color: @yellow;
+    border-bottom: 2px solid @yellow;
+    transition: color 0.5s, border-color 0.5s, border-radius 0.5s;
+}
+
+#workspaces button.urgent:hover {
+    background: @background;
+    border-color: @yellow;
+    color: @yellow;
+    border-radius: 10px;
+}
+
+/* =======================
+   Window Title / Task Bar
+========================== */
+#window {
+    color: @primary;
+    padding: 0 8px;
+    margin: 5px;
+    border-radius: 0;
+    transition: color 0.5s, border-color 0.5s, border-radius 0.5s;
+}
+
+window#waybar.empty #window {
+    color: transparent;
+    border: none;
+    transition: color 0.5s, border 0.5s;
+}
