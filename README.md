@@ -1,11 +1,13 @@
 # novecca-dots [WIP]
-![Logo](screenshot.png)
+![Logo](screenshot1.png)
+![Logo](screenshot2.png)
 
 ## What do I use
-- Hyprland
+- Hyprland for the WM
 - Waybar for the bar
 - Dunst for notifications
-- Tofi for the app launcher
+- Tofi for apps launcher
 - Pywal for setting my custom colorscheme colors
 - Iosevka Nerd for the font
 - Bibata Original Ice for the cursor
+
